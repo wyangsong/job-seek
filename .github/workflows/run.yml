@@ -1,4 +1,4 @@
-name: 测试浏览器抓取
+name: 官方RSS获取UI岗位
 on:
   workflow_dispatch:
 
@@ -7,11 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Chrome
-        uses: browser-actions/setup-chrome@latest
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install selenium pandas
+      - run: pip install feedparser pandas
       - run: python job_bot.py
